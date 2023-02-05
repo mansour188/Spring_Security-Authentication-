@@ -51,13 +51,19 @@ public class ApplicationSecurityConfig    // we use @Bean s
                  .roles(STUDENT.name())
                  .build();
 
-         UserDetails user2=User
+         UserDetails userAdmin=User
                  .builder()
-                 .username("amani")
+                 .username("userAdmin")
                  .password(passwordEncoder.encode("mansour"))
                  .roles(ADMIN.name())
                  .build();
-         return new InMemoryUserDetailsManager(user1,user2);
+        UserDetails userAdmintraine=User
+                .builder()
+                .username("userAdmintraine")
+                .password(passwordEncoder.encode("mansour"))
+                .roles(ADMINTRAINE.name())
+                .build();
+         return new InMemoryUserDetailsManager(user1,userAdmintraine,userAdmin);
      }
 
  }
